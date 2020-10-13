@@ -17,7 +17,7 @@ namespace ChannelEngine.Assessment.WKettlitz.ConsoleApp
         private static readonly Config _config = new Config
         {
             BaseApiUrl = "https://api-dev.channelengine.net/",
-            GetOrdersApiPath = "api/v2/orders"
+            OrdersApiPath = "api/v2/orders"
         };
 
         static async Task Main(string[] args)

@@ -17,15 +17,7 @@ namespace ChannelEngine.Assessment.WKettlitz.Shared
         private readonly HttpClient _httpClient;
         private readonly Config _config;
         private readonly Secrets _secrets;
-        private readonly JsonSerializerOptions _jsonSerializerOptions = new JsonSerializerOptions
-        {
-            AllowTrailingCommas = true,
-            IgnoreNullValues = true,
-            PropertyNameCaseInsensitive = true,
-#if DEBUG
-            WriteIndented = true,
-#endif
-        };
+        
 
         public OrdersApi(HttpClient httpClient, Config config, Secrets secrets)
         {
@@ -39,7 +31,7 @@ namespace ChannelEngine.Assessment.WKettlitz.Shared
             var requestUriBuilder = new UriBuilder
             {
                 Host = _config.BaseApiUrl,
-                Path = _config.GetOrdersApiPath,
+                Path = _config.OrdersApiPath,
                 Query = $"?apikey={_secrets.ApiKey}&statuses=IN_PROGRESS"
             };
 
@@ -49,8 +41,10 @@ namespace ChannelEngine.Assessment.WKettlitz.Shared
             var jsonStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
 
             return await JsonSerializer
-                .DeserializeAsync<CollectionOfMerchantOrderResponse>(jsonStream, _jsonSerializerOptions, cancellationToken)
+                .DeserializeAsync<CollectionOfMerchantOrderResponse>(jsonStream, Constants.JsonSerializerOptions, cancellationToken)
                 .ConfigureAwait(false);
         }
+
+
     }
 }

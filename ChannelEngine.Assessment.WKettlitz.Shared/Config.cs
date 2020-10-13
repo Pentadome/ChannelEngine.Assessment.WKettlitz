@@ -7,6 +7,8 @@ namespace ChannelEngine.Assessment.WKettlitz.Shared
     public class Config
     {
         private string? _baseApiUrl;
+        private string? _ordersApiPath;
+        private string? _productsApiPath;
 
         public string BaseApiUrl
         {
@@ -14,12 +16,21 @@ namespace ChannelEngine.Assessment.WKettlitz.Shared
             set => _baseApiUrl = value;
         }
 
-        private string? _getOrdersApiPath;
-
-        public string GetOrdersApiPath
+        public string OrdersApiPath
         {
-            get => _getOrdersApiPath ?? throw new InvalidOperationException("Uninitialized " + nameof(GetOrdersApiPath));
-            set => _getOrdersApiPath = value;
+            get => _ordersApiPath ?? throw new InvalidOperationException("Uninitialized " + nameof(OrdersApiPath));
+            set => _ordersApiPath = value;
+        }
+
+        public string ProductsApiPath
+        {
+            get => _productsApiPath ?? throw new InvalidOperationException("Uninitialized " + nameof(ProductsApiPath));
+            set => _productsApiPath = value;
+        }
+
+        public string GetPatchProductsUriPath(string merchantProductNo)
+        {
+            return $"{ProductsApiPath}/{merchantProductNo}";
         }
     }
 }
