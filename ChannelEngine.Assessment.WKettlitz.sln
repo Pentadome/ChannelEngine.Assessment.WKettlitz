@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChannelEngine.Assessment.WKettlitz.ConsoleApp", "ChannelEngine.Assessment.WKettlitz\ChannelEngine.Assessment.WKettlitz.ConsoleApp.csproj", "{1B1B9309-EB6F-43F7-90CD-10BFC3B66F08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChannelEngine.Assessment.WKettlitz.Shared", "ChannelEngine.Assessment.WKettlitz.Shared\ChannelEngine.Assessment.WKettlitz.Shared.csproj", "{AC7106AB-055F-4DDD-B04F-425CB45A2BAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B1B9309-EB6F-43F7-90CD-10BFC3B66F08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B1B9309-EB6F-43F7-90CD-10BFC3B66F08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B1B9309-EB6F-43F7-90CD-10BFC3B66F08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B1B9309-EB6F-43F7-90CD-10BFC3B66F08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC7106AB-055F-4DDD-B04F-425CB45A2BAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC7106AB-055F-4DDD-B04F-425CB45A2BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC7106AB-055F-4DDD-B04F-425CB45A2BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC7106AB-055F-4DDD-B04F-425CB45A2BAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01D1BD08-3F66-4735-BC51-23188C0A922F}
+	EndGlobalSection
+EndGlobal
