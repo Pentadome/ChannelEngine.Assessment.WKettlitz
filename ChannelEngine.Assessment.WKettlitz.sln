@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChannelEngine.Assessment.WKettlitz.ConsoleApp", "ChannelEngine.Assessment.WKettlitz\ChannelEngine.Assessment.WKettlitz.ConsoleApp.csproj", "{1B1B9309-EB6F-43F7-90CD-10BFC3B66F08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChannelEngine.Assessment.WKettlitz.ConsoleApp", "ChannelEngine.Assessment.WKettlitz\ChannelEngine.Assessment.WKettlitz.ConsoleApp.csproj", "{1B1B9309-EB6F-43F7-90CD-10BFC3B66F08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChannelEngine.Assessment.WKettlitz.Shared", "ChannelEngine.Assessment.WKettlitz.Shared\ChannelEngine.Assessment.WKettlitz.Shared.csproj", "{AC7106AB-055F-4DDD-B04F-425CB45A2BAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChannelEngine.Assessment.WKettlitz.Shared", "ChannelEngine.Assessment.WKettlitz.Shared\ChannelEngine.Assessment.WKettlitz.Shared.csproj", "{AC7106AB-055F-4DDD-B04F-425CB45A2BAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChannelEngine.Assessment.WKettlitz.AspNetCoreApp", "ChannelEngine.Assessment.WKettlitz.AspNetCoreApp\ChannelEngine.Assessment.WKettlitz.AspNetCoreApp.csproj", "{FFA54DAF-2F35-46C3-862A-C421D1ED0A01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{AC7106AB-055F-4DDD-B04F-425CB45A2BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC7106AB-055F-4DDD-B04F-425CB45A2BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC7106AB-055F-4DDD-B04F-425CB45A2BAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFA54DAF-2F35-46C3-862A-C421D1ED0A01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFA54DAF-2F35-46C3-862A-C421D1ED0A01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFA54DAF-2F35-46C3-862A-C421D1ED0A01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFA54DAF-2F35-46C3-862A-C421D1ED0A01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

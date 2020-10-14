@@ -41,6 +41,7 @@ namespace ChannelEngine.Assessment.WKettlitz.Shared
             {
                 var enumString = reader.GetString();
 
+                // Todo: cache look-ups for performance
                 var field = typeof(T).GetFields(BindingFlags.Public | BindingFlags.Static)
                     .First(x =>
                     {
