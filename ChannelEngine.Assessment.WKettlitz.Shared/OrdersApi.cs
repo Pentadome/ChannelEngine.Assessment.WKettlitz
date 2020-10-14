@@ -30,21 +30,19 @@ namespace ChannelEngine.Assessment.WKettlitz.Shared
         {
             var requestUriBuilder = new UriBuilder
             {
+                Scheme = "https",
                 Host = _config.BaseApiUrl,
                 Path = _config.OrdersApiPath,
                 Query = $"?apikey={_secrets.ApiKey}&statuses=IN_PROGRESS"
             };
 
             var response = await _httpClient.GetAsync(requestUriBuilder.Uri, cancellationToken).ConfigureAwait(false);
+
             response.EnsureSuccessStatusCode();
 
-            var jsonStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
-
-            return await JsonSerializer
-                .DeserializeAsync<CollectionOfMerchantOrderResponse>(jsonStream, Constants.JsonSerializerOptions, cancellationToken)
+            return await response
+                .DeserializeResponse<CollectionOfMerchantOrderResponse>(Constants.JsonSerializerOptions, cancellationToken)
                 .ConfigureAwait(false);
         }
-
-
     }
 }

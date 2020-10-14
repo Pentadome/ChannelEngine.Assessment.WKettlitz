@@ -4,8 +4,9 @@ using System.Text;
 
 namespace ChannelEngine.Assessment.WKettlitz.Shared.DataTransferObjects.MerchantProduct
 {
-    public class MerchantProductRequest
+    public class MerchantProductResponse
     {
-       
+        public string? Name { get; set; }
+        public int Stock { get; set; }
     }
 }

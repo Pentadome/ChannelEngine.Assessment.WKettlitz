@@ -15,6 +15,10 @@ namespace ChannelEngine.Assessment.WKettlitz.Shared
 #if DEBUG
             WriteIndented = true,
 #endif
+            Converters =
+            {
+                new CustomEnumJsonConverterFactory()
+            }
         };
     }
 }

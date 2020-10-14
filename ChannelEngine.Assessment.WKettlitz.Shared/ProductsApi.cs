@@ -8,6 +8,7 @@ using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using ChannelEngine.Assessment.WKettlitz.Shared.DataTransferObjects;
+using ChannelEngine.Assessment.WKettlitz.Shared.DataTransferObjects.MerchantProduct;
 
 namespace ChannelEngine.Assessment.WKettlitz.Shared
 {
@@ -36,16 +37,22 @@ namespace ChannelEngine.Assessment.WKettlitz.Shared
             var patchDocument = new JsonPatchDocument
             {
                 Path = "Stock",
-                Operation = "replace",
+                Operation = JsonPatchOperation.Replace,
                 Value = stockQuantity
             };
 
             var uriBuilder = new UriBuilder
             {
+                Scheme = "https",
                 Host = _config.BaseApiUrl,
                 Path = _config.GetPatchProductsUriPath(merchantProductNo),
                 Query = $"?apikey={_secrets.ApiKey}"
             };
+
+#if DEBUG
+            var serializedString = JsonSerializer.Serialize(patchDocument, Constants.JsonSerializerOptions);
+            Console.WriteLine(serializedString);
+#endif
 
             var utf8Stream = new MemoryStream();
             await JsonSerializer
@@ -54,10 +61,35 @@ namespace ChannelEngine.Assessment.WKettlitz.Shared
 
             var streamContent = new StreamContent(utf8Stream);
 
+            // Not very familiar with JSon patch
             var response = await _httpClient.PatchAsync(uriBuilder.Uri, streamContent, cancellationToken)
                                             .ConfigureAwait(false);
 
             return response.IsSuccessStatusCode;
+        }
+
+        public async Task<CollectionOfMerchantProductResponse> GetProductAsync(string merchantProductNo, CancellationToken cancellationToken = default)
+        {
+            if (string.IsNullOrWhiteSpace(merchantProductNo))
+            {
+                throw new ArgumentException($"'{nameof(merchantProductNo)}' cannot be null or whitespace", nameof(merchantProductNo));
+            }
+
+            var uriBuilder = new UriBuilder
+            {
+                Scheme = "https",
+                Host = _config.BaseApiUrl,
+                Path = _config.ProductsApiPath,
+                Query = $"?apikey={_secrets.ApiKey}&search={merchantProductNo}"
+            };
+
+            var response = await _httpClient.GetAsync(uriBuilder.Uri, cancellationToken).ConfigureAwait(false);
+
+            response.EnsureSuccessStatusCode();
+
+            return await response
+                .DeserializeResponse<CollectionOfMerchantProductResponse>(Constants.JsonSerializerOptions, cancellationToken)
+                .ConfigureAwait(false);
         }
     }
 }
