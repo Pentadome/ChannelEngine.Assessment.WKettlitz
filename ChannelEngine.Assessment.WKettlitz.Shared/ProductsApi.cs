@@ -88,7 +88,7 @@ namespace ChannelEngine.Assessment.WKettlitz.Shared
             response.EnsureSuccessStatusCode();
 
             return await response
-                .DeserializeResponse<CollectionOfMerchantProductResponse>(Constants.JsonSerializerOptions, cancellationToken)
+                .DeserializeResponseAsync<CollectionOfMerchantProductResponse>(Constants.JsonSerializerOptions, cancellationToken)
                 .ConfigureAwait(false);
         }
     }

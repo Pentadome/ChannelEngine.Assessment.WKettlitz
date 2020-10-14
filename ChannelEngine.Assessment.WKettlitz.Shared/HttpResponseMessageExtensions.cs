@@ -11,7 +11,7 @@ namespace ChannelEngine.Assessment.WKettlitz.Shared
 {
     public static class HttpResponseMessageExtensions
     {
-        public async static Task<T> DeserializeResponse<T>(this HttpResponseMessage @this, JsonSerializerOptions jsonSerializerOptions, CancellationToken cancellationToken = default)
+        public async static Task<T> DeserializeResponseAsync<T>(this HttpResponseMessage @this, JsonSerializerOptions jsonSerializerOptions, CancellationToken cancellationToken = default)
         {
             if (@this is null)
             {
