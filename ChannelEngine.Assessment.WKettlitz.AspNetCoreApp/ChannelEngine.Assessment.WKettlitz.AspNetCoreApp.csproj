@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>bfbe4f79-7df5-4abf-8bd6-eaa74a696794</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChannelEngine.Assessment.WKettlitz.Shared\ChannelEngine.Assessment.WKettlitz.Shared.csproj" />
+  </ItemGroup>
 
 </Project>

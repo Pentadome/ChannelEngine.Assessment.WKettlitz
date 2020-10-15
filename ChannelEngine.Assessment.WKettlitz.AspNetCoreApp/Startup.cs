@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ChannelEngine.Assessment.WKettlitz.Shared;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +25,19 @@ namespace ChannelEngine.Assessment.WKettlitz.AspNetCoreApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            ;
+            var config = new Config();
+            Configuration.GetSection("Config").Bind(config);
+            services.AddSingleton(config);
+
+            var secrets = new Secrets();
+            Configuration.GetSection("Secrets").Bind(secrets);
+            services.AddSingleton(secrets);
+
+            services.AddSingleton<OrdersBll>();
+
+            services.AddHttpClient<ProductsApi>();
+            services.AddHttpClient<OrdersApi>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,7 +58,7 @@ namespace ChannelEngine.Assessment.WKettlitz.AspNetCoreApp
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
