@@ -25,11 +25,14 @@ namespace ChannelEngine.Assessment.WKettlitz.AspNetCoreApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            ;
+
             var config = new Config();
             Configuration.GetSection("Config").Bind(config);
             services.AddSingleton(config);
 
+            /*
+             * Secret added by right clicking the project and clicking on 'Manage User Secrets'.
+            */
             var secrets = new Secrets();
             Configuration.GetSection("Secrets").Bind(secrets);
             services.AddSingleton(secrets);
